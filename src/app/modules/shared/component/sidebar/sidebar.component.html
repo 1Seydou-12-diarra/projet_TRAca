@@ -1,0 +1,79 @@
+<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed':''">
+	<div class="logo-container">
+		<div class="logo-text mr-3" *ngIf="collapsed" @fadeInOut>
+			<img alt="Card" src="assets/img/logo_snedai_blanc.svg" [style]="{'width': '100%','height': '100%'}">
+			<span class="ml-2 text-50" [style]="{fontWeight:'bold'}">Traçabilité-CIGARE</span>
+		</div>
+		<i class=" logo pi pi-bars text-50 hover:text-orange-500 mr-4" (click)="toggleCollapse()"></i>
+	</div>
+	
+	<ul class="sidenav-nav">
+		<li class="sidenav-nav-item" *ngFor="let data of navData">
+			<a class="sidenav-nav-link" (click)="handleClick(data)"
+			   [ngClass]="{'active': isResultat()}"
+			   *ngIf="data.items && data.items.length > 0">
+				<em class="sidenav-link-icon"
+					[pTooltip]="!collapsed ? data.label : ''"
+					[class]="data.icon"
+					(click)="toggleAdminItems()">
+				</em>
+				<span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">
+							{{ data.label}}
+						</span>
+				<em *ngIf="data.items && collapsed" class="menu-collapse-icon"
+					[ngClass]="!data.expanded ? 'fa fa-angle-right':'fa fa-angle-down'"></em>
+			</a>
+			<a class="sidenav-nav-link"
+			   *ngIf="!data.items || (data.items && data.items.length===0)"
+			   [routerLink]="[data.routerlink]"
+			   routerLinkActive="active"
+			   [routerLinkActiveOptions]="{exact:true}">
+				<em class="sidenav-link-icon" [pTooltip]="!collapsed ? data.label : ''" [class]="data.icon"></em>
+				<span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">
+					{{ data.label}}
+			   </span>
+			</a>
+			<div *ngIf="(collapsed && data.items && data.items.length > 0)">
+				<app-sublevel-menu [collapsed]="collapsed"
+								   [multiple]="multiple"
+								   [expanded]="data.expanded"
+								   [data]="data">
+				</app-sublevel-menu>
+			</div>
+		</li>
+		<div class="mt-5 text-center px-3">
+			<button class="btn-deconnexion w-100" (click)="deconnecter()">
+				<em class="sidenav-link-icon pi pi-power-off" [pTooltip]="!collapsed ? 'SE DECONNECTER' : ''"></em>
+				<span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">
+						{{ 'SE DECONNECTER' }}
+				   </span>
+			</button>
+		</div>
+	</ul>
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
