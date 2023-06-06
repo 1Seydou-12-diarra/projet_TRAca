@@ -1,5 +1,11 @@
 <p-toast></p-toast>
 <div class="card">
+	<p-toolbar>
+		<ng-template pTemplate="left">
+			<button pButton pRipple label="Nouveau" icon="pi pi-plus" class="p-button-primary mr-2"
+					(click)="ouvriModal()"></button>
+		</ng-template>
+	</p-toolbar>
 	<p-table [value]="importateurs" [rows]="10" [paginator]="true" [tableStyle]="{'min-width':'75rem'}"
 			 [(selection)]="selectedImportateurs" [rowHover]="true" dataKey="id">
 		<ng-template pTemplate="caption">
@@ -69,3 +75,5 @@
 		</ng-template>
 	</p-table>
 </div>
+
+<importateur-modal [(visible)]="importateurDialog" [idImportateur]="idImportateur"></importateur-modal>

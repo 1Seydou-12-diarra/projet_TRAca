@@ -9,11 +9,32 @@ import { urls } from '../urls';
 })
 export class ImportateurService {
   constructor(private http: HttpClient) {}
+
   /** Récuperer la liste des importateurs.
 	 * @return Importateur[]
 	 */
 	recupererImportateur():Observable<Importateur[]> {
 	  return this.http.get<Importateur[]>(urls.importateur + '/lister');
   }
-  
+
+  rechercherImportateur(id: number) :Observable<Importateur> {
+	return this.http.get<Importateur>(urls.importateur + '/' + id)
+  }
+
+ /** creer un importateur.
+	 * @return Importateur
+	 */
+  creerImportateur(importateurs:Importateur):Observable<Importateur> {
+	  return this.http.post<Importateur>(urls.importateur ,importateurs);
+  }
+
+   /**modifier un importateur.
+	 * @return Importateur
+	 */
+  modifierImportateur(importateur:Importateur, id:number):Observable<Importateur[]> {
+	  return this.http.put<Importateur[]>(urls.importateur + '/' + id ,importateur);
+  }
+
+
+
 }

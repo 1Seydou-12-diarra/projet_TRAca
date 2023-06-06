@@ -10,10 +10,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { ToolbarModule } from 'primeng/toolbar';
 import { TooltipModule } from 'primeng/tooltip';
+import { EditorModule } from 'primeng/editor';
+import { ImportateurModalComponent } from './importateur/importateur-modal/importateur-modal.component';
 
 @NgModule({
   declarations: [
-    ImportateurComponent
+    ImportateurComponent,
+    ImportateurModalComponent
   ],
   imports: [
     CommonModule,
@@ -25,6 +28,8 @@ import { TooltipModule } from 'primeng/tooltip';
     ButtonModule,
     ToolbarModule,
     TooltipModule,
+    EditorModule
+  
   ]
 })
 export class ReferentielModule { }
