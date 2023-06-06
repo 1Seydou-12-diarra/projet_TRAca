@@ -45,8 +45,8 @@ export class HeaderComponent {
 	}
 
 	ngOnInit(): void {
-		this.recupererAnnee(true);
-		this.recupererCirconscription();
+		// this.recupererAnnee(true);
+		// this.recupererCirconscription();
 		this.filtreService.filtreChange.next(this.donneeFitres);
 	}
 

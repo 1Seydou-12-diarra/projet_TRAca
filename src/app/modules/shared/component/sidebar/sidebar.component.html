@@ -2,11 +2,11 @@
 	<div class="logo-container">
 		<div class="logo-text mr-3" *ngIf="collapsed" @fadeInOut>
 			<img alt="Card" src="assets/img/logo_snedai_blanc.svg" [style]="{'width': '100%','height': '100%'}">
-			<span class="ml-2 text-50" [style]="{fontWeight:'bold'}">Traçabilité-CIGARE</span>
+			<span class="ml-2 text-50" [style]="{fontWeight:'bold'}">Marquage des cigares</span>
 		</div>
 		<i class=" logo pi pi-bars text-50 hover:text-orange-500 mr-4" (click)="toggleCollapse()"></i>
 	</div>
-	
+
 	<ul class="sidenav-nav">
 		<li class="sidenav-nav-item" *ngFor="let data of navData">
 			<a class="sidenav-nav-link" (click)="handleClick(data)"
@@ -50,7 +50,7 @@
 			</button>
 		</div>
 	</ul>
-	
+
 </div>
 
 

@@ -1,0 +1,71 @@
+<p-toast></p-toast>
+<div class="card">
+	<p-table [value]="importateurs" [rows]="10" [paginator]="true" [tableStyle]="{'min-width':'75rem'}"
+			 [(selection)]="selectedImportateurs" [rowHover]="true" dataKey="id">
+		<ng-template pTemplate="caption">
+			<div class="flex align-items-center justify-content-between">
+				<h5 class="m-0">importateurs</h5>
+			</div>
+		</ng-template>
+		<ng-template pTemplate="header">
+			<tr>
+				<th style="width: 4rem; text-align: center;">
+					<p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+				</th>
+				<th pSortableColumn="code" class="text-center">Code
+					<p-sortIcon field="code"></p-sortIcon>
+				</th>
+				<th pSortableColumn="designation" class="text-center">Désignation
+					<p-sortIcon field="designation"></p-sortIcon>
+				</th>
+				<th pSortableColumn="nomGerant" class="text-center">Nom Gérant
+					<p-sortIcon field="nomGerant"></p-sortIcon>
+				</th>
+				<th pSortableColumn="prenomsGerant" class="text-center">Prénoms Gérant
+					<p-sortIcon field="prenomsGerant"></p-sortIcon>
+				</th>
+				<th class="text-center">Actions</th>
+			</tr>
+			<tr>
+				<th></th>
+				<th>
+					<p-columnFilter type="text" field="code"></p-columnFilter>
+				</th>
+				<th>
+					<p-columnFilter type="text" field="designation"></p-columnFilter>
+				</th>
+				<th>
+					<p-columnFilter type="text" field="nomGerant"></p-columnFilter>
+				</th>
+				<th>
+					<p-columnFilter type="text" field="prenomsGerant"></p-columnFilter>
+				</th>
+				<th>
+
+				</th>
+			</tr>
+		</ng-template>
+		<ng-template pTemplate="body" let-importateur>
+			<tr>
+				<td	>
+					<p-tableCheckbox [value]='importateur'></p-tableCheckbox>
+				</td>
+				<td>{{ importateur.code }}</td>
+				<td>{{ importateur.designation }}</td>
+				<td>{{ importateur.nomGerant }}</td>
+				<td>{{ importateur.prenomsGerant }}</td>
+				<td class="text-center">
+<!--					<i class="pi pi-pencil hover:bg-orange-400 border-round p-2 ml-5"-->
+<!--					   aria-hidden="true" title="Modfier"></i>&nbsp;-->
+<!--					<i class="pi pi-eye hover:bg-orange-400 border-round p-2 ml-5"-->
+<!--					   aria-hidden="true" title="Visualiser"></i>-->
+				</td>
+			</tr>
+		</ng-template>
+		<ng-template pTemplate="emptymessage">
+			<tr>
+				<td colspan="5">Pas d'importateur disponible.</td>
+			</tr>
+		</ng-template>
+	</p-table>
+</div>

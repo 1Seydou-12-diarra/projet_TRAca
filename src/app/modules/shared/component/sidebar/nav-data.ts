@@ -14,12 +14,12 @@ export const NavbarData: INavBarData[] = [
 		expanded: false,
 		items: [
 			{
-				routerlink: 'resultat/importateur',
-				label: "Importateur",
+				routerlink: 'referentiel/importateur',
+				label: "Importateurs",
 				icon: 'pi pi-chart-line',
 			},
 			{
-				routerlink: 'resultat/fabricant',
+				routerlink: 'referentiel/fabricant',
 				label: "Fabricant",
 				icon: 'pi pi-home',
 			}

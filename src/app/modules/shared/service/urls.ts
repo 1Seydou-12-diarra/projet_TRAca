@@ -7,5 +7,6 @@ export const urls = {
 	election: '/api/election',
 	VoixPartis: '/api/parti',
 	candidat: 'api/candidat',
-	zone: '/api/zone'
+	zone: '/api/zone',
+	importateur: '/importateur',
 };
