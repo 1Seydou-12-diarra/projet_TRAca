@@ -12,11 +12,13 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { TooltipModule } from 'primeng/tooltip';
 import { EditorModule } from 'primeng/editor';
 import { ImportateurModalComponent } from './importateur/importateur-modal/importateur-modal.component';
+import {FabricantComponent} from "./fabricant/fabricant.component";
 
 @NgModule({
   declarations: [
     ImportateurComponent,
-    ImportateurModalComponent
+    ImportateurModalComponent,
+	  FabricantComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +31,7 @@ import { ImportateurModalComponent } from './importateur/importateur-modal/impor
     ToolbarModule,
     TooltipModule,
     EditorModule
-  
+
   ]
 })
 export class ReferentielModule { }
