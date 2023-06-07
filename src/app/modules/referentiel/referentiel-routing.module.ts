@@ -2,13 +2,15 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {ImportateurComponent} from './importateur/importateur.component';
 import {FabricantComponent} from "./fabricant/fabricant.component";
+import { ArticleComponent } from './article/article.component';
 
 const routes: Routes = [
 	{
 		path: '',
 		children: [
 			{path: 'importateur', component: ImportateurComponent},
-			{path: 'fabricant', component: FabricantComponent}
+			{path: 'fabricant', component: FabricantComponent},
+			{path: 'article', component: ArticleComponent,}
 		]
 	},
 ];
