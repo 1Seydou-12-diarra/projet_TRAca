@@ -3,6 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {ImportateurComponent} from './importateur/importateur.component';
 import {FabricantComponent} from "./fabricant/fabricant.component";
 import { ArticleComponent } from './article/article.component';
+import { ConditionnementComponent } from './conditionnement/conditionnement.component';
 
 const routes: Routes = [
 	{
@@ -10,7 +11,8 @@ const routes: Routes = [
 		children: [
 			{path: 'importateur', component: ImportateurComponent},
 			{path: 'fabricant', component: FabricantComponent},
-			{path: 'article', component: ArticleComponent,}
+			{path: 'article', component: ArticleComponent},
+			{path: 'conditionnement', component: ConditionnementComponent}
 		]
 	},
 ];

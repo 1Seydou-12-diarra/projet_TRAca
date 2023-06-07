@@ -16,10 +16,8 @@ import {CodeDesignation} from '../../model/code-designation';
 })
 
 export class HeaderComponent {
-	scrutins: Election[];
 	election: Election;
 	circonscriptions: Circonscription[];
-	choixFiltreRegion: SelectItem[];
 	circonscriptionSelectionnees: Circonscription[];
 	optionsFiltreCirconscription: SelectItem[];
 	commissionLocales: CommissionLocale[];
@@ -39,9 +37,10 @@ export class HeaderComponent {
 	            private filtreService: FiltreService) {
 	}
 
-	ngOnInit(): void {
-		this.filtreService.filtreChange.next(this.donneeFitres);
-	}
+	//
+	// ngOnInit(): void {
+	// 	this.filtreService.filtreChange.next(this.donneeFitres);
+	// }
 
 	public recupererClassBody(): string {
 		let styleclass = '';
@@ -180,28 +179,28 @@ export class HeaderComponent {
 
 	/**
 	 * Stocker les valeurs pour les filtres globaux.
-	 */
-	public stockerFiltresLocalStorage(): void {
-		localStorage.setItem('annee', this.anneeSelectionnee?.toString());
-		localStorage.setItem('tour', this.tourSelectionne.code);
-		localStorage.setItem('codeCirconscription', this.circonscriptionSelectionnees ?
-			this.circonscriptionSelectionnees.map(c => c.code.toString()).join(',') : '');
-		localStorage.setItem('codeCommissionLocale', this.commissionLocaleSelectionnees ?
-			this.commissionLocaleSelectionnees.map(c => c.code.toString()).join(',') : '');
-	}
+	//  */
+	// public stockerFiltresLocalStorage(): void {
+	// 	localStorage.setItem('annee', this.anneeSelectionnee?.toString());
+	// 	localStorage.setItem('tour', this.tourSelectionne.code);
+	// 	localStorage.setItem('codeCirconscription', this.circonscriptionSelectionnees ?
+	// 		this.circonscriptionSelectionnees.map(c => c.code.toString()).join(',') : '');
+	// 	localStorage.setItem('codeCommissionLocale', this.commissionLocaleSelectionnees ?
+	// 		this.commissionLocaleSelectionnees.map(c => c.code.toString()).join(',') : '');
+	// }
 
 	/**
 	 * Cette fonction permet de valider les filtres
 	 */
-	public validerfiltre(): void {
-		const donneesFiltre = new DonneesFiltre();
-		donneesFiltre.annee = this.anneeSelectionnee;
-		donneesFiltre.tour = this.tourSelectionne.code;
-		donneesFiltre.circonscription = this.circonscriptionSelectionnees?.map(r => r.code).join(',');
-		donneesFiltre.commissionLocale = this.commissionLocaleSelectionnees?.map(c => c.code).join(',');
-		this.filtreService.filtreChange.next(donneesFiltre);
-		this.stockerFiltresLocalStorage();
-	}
+	// public validerfiltre(): void {
+	// 	const donneesFiltre = new DonneesFiltre();
+	// 	donneesFiltre.annee = this.anneeSelectionnee;
+	// 	donneesFiltre.tour = this.tourSelectionne.code;
+	// 	donneesFiltre.circonscription = this.circonscriptionSelectionnees?.map(r => r.code).join(',');
+	// 	donneesFiltre.commissionLocale = this.commissionLocaleSelectionnees?.map(c => c.code).join(',');
+	// 	this.filtreService.filtreChange.next(donneesFiltre);
+	// 	this.stockerFiltresLocalStorage();
+	// }
 
 	/**
 	 * Permet de vider toutes les valeurs des filtres
@@ -225,39 +224,39 @@ export class HeaderComponent {
 	 * Contruit les options d'un multiselect.
 	 * @param data la liste des données source.
 	 */
-	construireOptionfiltres(data: any[]): SelectItem[] {
-		return data?.map(objet => {
-			return {
-				code: objet.code,
-				value: objet.designation,
-				id: objet.id
-			};
-		});
-	}
+	// construireOptionfiltres(data: any[]): SelectItem[] {
+	// 	return data?.map(objet => {
+	// 		return {
+	// 			code: objet.code,
+	// 			value: objet.designation,
+	// 			id: objet.id
+	// 		};
+	// 	});
+	// }
 
-	/**
-	 * Retourne true si l'utilisateur est sur la vue résultat détaillée.
-	 * @return boolean
-	 */
-	isResultatsDetailles(): boolean {
-		return this.navigationService.isResultatsDetailles();
-	}
+	// /**
+	//  * Retourne true si l'utilisateur est sur la vue résultat détaillée.
+	//  * @return boolean
+	//  */
+	// isResultatsDetailles(): boolean {
+	// 	return this.navigationService.isResultatsDetailles();
+	// }
 
-	/**
-	 * Retourne true si l'utilisateur est sur la vue carte interactive.
-	 * @return boolean
-	 */
-	isCarteInteractive(): boolean {
-		return this.navigationService.isCarteInteractive();
-	}
-
-	/**
-	 * Retourne true s'il faute désactiver le bouton de recherche.
-	 * @return boolean
-	 */
-	desactiverBoutonFiltre(): boolean {
-		return ((!this.anneeSelectionnee || !this.tourSelectionne) && !this.isResultatsDetailles()) ||
-			((!this.anneeSelectionnee || !this.tourSelectionne || !this.circonscriptionSelectionnees?.length ||
-				this.commissionLocaleSelectionnees?.length !== 1) && this.isResultatsDetailles());
-	}
+	// /**
+	//  * Retourne true si l'utilisateur est sur la vue carte interactive.
+	//  * @return boolean
+	//  */
+	// isCarteInteractive(): boolean {
+	// 	return this.navigationService.isCarteInteractive();
+	// }
+	//
+	// /**
+	//  * Retourne true s'il faute désactiver le bouton de recherche.
+	//  * @return boolean
+	//  */
+	// desactiverBoutonFiltre(): boolean {
+	// 	return ((!this.anneeSelectionnee || !this.tourSelectionne) && !this.isResultatsDetailles()) ||
+	// 		((!this.anneeSelectionnee || !this.tourSelectionne || !this.circonscriptionSelectionnees?.length ||
+	// 			this.commissionLocaleSelectionnees?.length !== 1) && this.isResultatsDetailles());
+	// }
 }

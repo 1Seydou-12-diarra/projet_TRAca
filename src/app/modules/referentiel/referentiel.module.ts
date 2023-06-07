@@ -1,5 +1,5 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import {DropdownModule} from 'primeng/dropdown';
 import {MultiSelectModule} from 'primeng/multiselect';
@@ -22,13 +22,15 @@ import {EditorModule} from 'primeng/editor';
 import {ImportateurModalComponent} from './importateur/importateur-modal/importateur-modal.component';
 import {FabricantComponent} from "./fabricant/fabricant.component";
 import {ArticleComponent} from "./article/article.component";
+import { ConditionnementComponent } from './conditionnement/conditionnement.component';
 
 @NgModule({
 	declarations: [
 		ImportateurComponent,
 		ImportateurModalComponent,
 		FabricantComponent,
-		ArticleComponent
+		ArticleComponent,
+		ConditionnementComponent
 	],
 	imports: [
 		CommonModule,

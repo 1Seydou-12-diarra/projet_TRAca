@@ -5,4 +5,5 @@ export const urls = {
 	pays: '/ws/pays',
 	articles: '/ws/articles',
 	marques: '/ws/marques',
-};
+	conditionnement: '/ws/conditionnements'
+}
