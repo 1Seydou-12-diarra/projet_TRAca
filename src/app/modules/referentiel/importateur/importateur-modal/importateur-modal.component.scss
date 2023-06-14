@@ -2,65 +2,26 @@ form {
     max-width: 400px;
     margin: 0 auto;
   }
-  
+
   .p-field {
     margin-bottom: 1rem;
   }
-  
+
   label {
     display: block;
     font-weight: bold;
   }
 
-  header{
-    text-align: center;
-  }
-  
   input[type="text"] {
     width: 100%;
     padding: 0.8rem;
     border: 1px solid #ccc;
     border-radius: 5px;
   }
-  
+
   .small-error {
     color: red;
     font-size: 0.75rem;
     margin-top: 0.25rem;
   }
-  
-  .mon-button-ajout{
-    background-color: #28285e;
-    color: #fff;
-    border: none;
-    padding: 0.8em 1.2em;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    position: relative;
-    left: 180px;
-  }
 
-  .mon-button-annuler{
-    background-color: #fd8607;
-    color: #fff;
-    border: none;
-    padding: 0.8em 1.2em;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    position: relative;
-    left: 185px;
-  }
-
-
-.mon-button:focus{
-    outline: none;
-    box-shadow: 0 0 0 2px #28285e, 0 0 0 4px #f99c06;
-}

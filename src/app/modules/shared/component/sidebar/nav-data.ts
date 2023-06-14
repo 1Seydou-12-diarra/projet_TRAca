@@ -15,7 +15,7 @@ export const NavbarData: INavBarData[] = [
 		items: [
 			{
 				routerlink: 'referentiel/importateur',
-				label: "Importateurs",
+				label: "Importateur",
 				icon: 'pi pi-chart-line',
 			},
 			{

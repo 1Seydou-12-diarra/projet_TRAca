@@ -14,7 +14,7 @@ export class FabricantComponent implements OnInit {
 	pays: Pays[] = [];
 	fabricant: Fabricant;
 	fabricants: Fabricant[] = [];
-	selectedFabricants: Fabricant[];
+	fabricantSelectionne: Fabricant;
 	submitted: boolean;
 
 	constructor(
