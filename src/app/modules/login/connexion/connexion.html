@@ -1,31 +1,28 @@
 <div class="bg-pers">
-    <div class="background">
-        <div class="shape"></div>
-        <div class="shape"></div>
-    </div>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <div [style]="{'margin-top':'-8rem', 'margin-bottom':'3.5rem', 'padding-top':'20px'}">
-        <img src="assets/img/logo_snedai_blanc.svg" [style]="{'width':'300px'}">
-      </div>
-        <h4 class="font-semibold text-uppercase text-center" [style]="{'font-family':'Cinzel, serif'}">Marquage de Cigare</h4>
-        <div>
-          <label for="username"> Nom d'utilisateur</label>
-          <input type="text" placeholder="Nom d'utilisateur" id="username" formControlName="username">
-        </div>
-      <div>
-        <label for="password">Mot de passe</label>
-        <input type="password" placeholder="Mot de passe" id="password" formControlName="password">
-      </div>
-      <div class="flex justify-content-end flex-wrap mt-2">
-        <button *ngIf="!isLoading" label="Se connecter" class="p-button-sm mt-4 bouton-connexion" type="submit">
-          Se connecter
-          <span>
-            <p-progressSpinner *ngIf="isLoading" styleClass="w-3rem h-3rem" strokeWidth="5" fill="var(--surface-ground)" animationDuration=".5s"></p-progressSpinner>
-          </span>
-        </button>
-      </div>
-      <span *ngIf="messageActif" class="flex justify-content-center mt-6">
-						<p-message severity="error" [text]="messageErreur"></p-message>
-				</span>
-    </form>
+	<div class="background">
+		<div class="shape"></div>
+		<div class="shape"></div>
+	</div>
+	<form [formGroup]="loginForm" (ngSubmit)="connexion()">
+		<div [style]="{'margin-top':'-4rem', 'margin-bottom':'2.5rem', 'padding-top':'20px'}">
+			<img src="assets/img/logo_snedai_blanc.svg" [style]="{'width':'300px'}">
+		</div>
+		<div>
+			<label for="username"> Nom d'utilisateur</label>
+			<input type="text" id="username" formControlName="username">
+		</div>
+		<div>
+			<label for="password">Mot de passe</label>
+			<input type="password" id="password" formControlName="password">
+		</div>
+		<div class="flex justify-content-center flex-wrap">
+			<button *ngIf="!chargement" label="Connexion" class="mt-4" type="submit" pButton>
+			</button>
+			<span *ngIf="chargement" class="spinner-border"></span>
+			<span *ngIf="messageActif" class="mt-6">
+				<p-message severity="error" [text]="messageErreur">
+				</p-message>
+			</span>
+		</div>
+	</form>
 </div>

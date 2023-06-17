@@ -2,8 +2,14 @@ import {INavBarData} from './helper';
 
 export const NavbarData: INavBarData[] = [
 	{
+		routerlink: 'accueil',
+		icon: 'pi pi-home',
+		label: 'Accueil',
+		items: []
+	},
+	{
 		routerlink: 'code',
-		icon: 'pi pi-chart-bar',
+		icon: 'pi pi-qrcode',
 		label: 'Code',
 		items: []
 	},
@@ -16,22 +22,22 @@ export const NavbarData: INavBarData[] = [
 			{
 				routerlink: 'referentiel/importateur',
 				label: "Importateur",
-				icon: 'pi pi-chart-line',
+				icon: 'pi pi-chart-line'
 			},
 			{
 				routerlink: 'referentiel/fabricant',
 				label: "Fabricant",
-				icon: 'pi pi-home',
+				icon: 'pi pi-home'
 			},
 			{
 				routerlink: 'referentiel/article',
 				label: "Article",
-				icon: 'pi pi-chart-line',
+				icon: 'pi pi-chart-line'
 			},
 			{
 				routerlink: 'referentiel/conditionnement',
 				label: "Conditionnement",
-				icon: 'pi pi-code',
+				icon: 'pi pi-code'
 			}
 		]
 	}

@@ -2,8 +2,7 @@ export class Credentials {
 	username: string;
 	password: string;
 
-	constructor(username: string, password: string) {
-		this.username = username;
-		this.password = password;
+	constructor(credentials: Partial<Credentials>) {
+		Object.assign(this, credentials);
 	}
 }
