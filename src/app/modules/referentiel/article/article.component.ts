@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PrimeNGConfig } from 'primeng/api';
 import { Articles } from 'src/app/modules/shared/model/article/article';
 import { Fabricant } from 'src/app/modules/shared/model/fabricant/fabricant';
 import { Marque } from 'src/app/modules/shared/model/marque/marque';
@@ -26,13 +27,17 @@ export class ArticleComponent {
     private marqueService : MarqueService,
     private fabricantService : FabricantService,
     private articleService : ArticleService,
+    private primeNgConfig:PrimeNGConfig,
     ){}
 
       ngOnInit() {
         this.afficheArticle();
+        this.recupererTradctionFiltre();
       }
 
+      public recupererTradctionFiltre(): void {
 
+    }
 
   //Cette fonction permet de récupérer la liste des marques depuis le service
       afficherMarque() {

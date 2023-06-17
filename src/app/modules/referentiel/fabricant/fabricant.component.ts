@@ -21,14 +21,30 @@ export class FabricantComponent implements OnInit {
 		private paysService: PaysService,
 		private fabricantService: FabricantService,
 		private messageService: MessageService,
-		private primeConfig: PrimeNGConfig,
+		private primeNgConfig: PrimeNGConfig,
 	) {
 	}
 
 
 	ngOnInit(): void {
 		this.recupererFabricant();
+		this.recupererTradctionFiltre();
 	}
+
+	public recupererTradctionFiltre(): void {
+        this.primeNgConfig.setTranslation({
+            startsWith: 'Commence par',
+            contains: 'Contient',
+            notContains: 'Ne contient pas',
+            endsWith: 'Fini par',
+            equals: 'Egale à',
+            notEquals: 'Différent de',
+            noFilter: 'Pas de filtre',
+            reject: 'Non',
+            accept: 'Oui'
+        });
+    }
+	
 
 	recupererFabricant(): void {
 		this.fabricantService.recupererFabricants().subscribe({
