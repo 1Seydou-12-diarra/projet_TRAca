@@ -5,8 +5,8 @@
 		  [closeOnEscape]="false"
 		  [draggable]="false"
 		  [resizable]="false"
-          (onShow)="onOuverture()"
-          (onHide)="onFermeture()"
+		  (onShow)="onOuverture()"
+		  (onHide)="onFermeture()"
 		  [focusOnShow]="false"
 		  [style]="{ width: '470px' }">
 
@@ -14,31 +14,31 @@
 		{{ idImportateur == 0 || idImportateur == null ? "Ajouter  Importateur" : "Modifier Importateur" }}
 	</p-header>
 
-  <div class="container-fluid">
-    <form [formGroup]="importateurForm">
-      <div class="p-fluid">
-        <div class="p-field">
-          <label for="code">Code</label>
-          <input  id="code" type="text" class="p-inputtext-lg" formControlName="code" pInputText >
-        </div>
+	<div class="container-fluid">
+		<form [formGroup]="importateurForm">
+			<div class="p-fluid">
+				<div class="p-field">
+					<label for="code">Code</label>
+					<input id="code" type="text" class="p-inputtext-lg" formControlName="code" pInputText>
+				</div>
 
-        <div class="p-field">
-          <label for="designation">Désignation</label>
-          <input id="designation" type="text" class="p-inputtext-lg" formControlName="designation" pInputText>
-        </div>
+				<div class="p-field">
+					<label for="designation">Désignation</label>
+					<input id="designation" type="text" class="p-inputtext-lg" formControlName="designation" pInputText>
+				</div>
 
-        <div class="p-field">
-          <label for="nom">Nom</label>
-          <input id="nom" type="text" class="p-inputtext-lg" formControlName="nomGerant" pInputText>
-        </div>
+				<div class="p-field">
+					<label for="nom">Nom</label>
+					<input id="nom" type="text" class="p-inputtext-lg" formControlName="nomGerant" pInputText>
+				</div>
 
-        <div class="p-field">
-          <label for="prenoms">Prénoms</label>
-          <input id="prenoms" type="text" class="p-inputtext-lg" formControlName="prenomsGerant" pInputText>
-        </div>
-      </div>
-    </form>
-  </div>
+				<div class="p-field">
+					<label for="prenoms">Prénoms</label>
+					<input id="prenoms" type="text" class="p-inputtext-lg" formControlName="prenomsGerant" pInputText>
+				</div>
+			</div>
+		</form>
+	</div>
 
 	<p-footer>
 		<div [hidden]="enregistrementEnCours">

@@ -1,3 +1,5 @@
+@import "variables";
+@import "spinners";
 body,
 body .p-component {
 	font-family: "Open Sans", sans-serif;
@@ -14,6 +16,10 @@ body .p-component {
 	#ngb-live {
 		visibility: hidden;
 	}
+}
+
+.spinner-border {
+	color:  map_get($theme-colors, 'secondaryColor') !important;
 }
 
 /* Styles des modales */

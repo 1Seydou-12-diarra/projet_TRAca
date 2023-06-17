@@ -3413,10 +3413,6 @@ utton.p-button-link:enabled:hover {
 	background-color: #f4f4f4;
 }
 
-.p-datatable .p-datatable-loading-icon {
-	font-size: 2rem;
-}
-
 .p-datatable.p-datatable-gridlines .p-datatable-header {
 	border-width: 1px 1px 0 1px;
 }

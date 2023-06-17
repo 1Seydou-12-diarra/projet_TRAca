@@ -49,8 +49,7 @@ export class ImportateurModalComponent {
 	}
 
 	/**
-	 * Cette méthode permet à un utilisateur de ce connecter
-	 * @param utilisateur
+	 *
 	 */
 	onOuverture(): void {
 		this.modeModification = !!this.idImportateur;

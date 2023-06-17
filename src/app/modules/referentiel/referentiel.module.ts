@@ -15,7 +15,6 @@ import {TooltipModule} from "primeng/tooltip";
 import {ButtonModule} from "primeng/button";
 
 import {ReferentielRoutingModule} from './referentiel-routing.module';
-import {ImportateurComponent} from './importateur/importateur.component';
 import {ToastModule} from 'primeng/toast';
 import {ToolbarModule} from 'primeng/toolbar';
 import {EditorModule} from 'primeng/editor';
@@ -23,10 +22,11 @@ import {ImportateurModalComponent} from './importateur/importateur-modal/importa
 import {FabricantComponent} from "./fabricant/fabricant.component";
 import {ArticleComponent} from "./article/article.component";
 import { ConditionnementComponent } from './conditionnement/conditionnement.component';
+import {ListeImportateur} from './importateur/liste-importateur';
 
 @NgModule({
 	declarations: [
-		ImportateurComponent,
+		ListeImportateur,
 		ImportateurModalComponent,
 		FabricantComponent,
 		ArticleComponent,

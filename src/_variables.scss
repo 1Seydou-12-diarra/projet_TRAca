@@ -1,0 +1,35 @@
+/*
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
+
+$theme-colors: map_merge($theme-colors,(
+  "primary":#a80000,
+  "secondary":darken(grey, 20),
+  "gray":gray("500")
+));
+
+$colors: (
+  "transparent":transparent,
+);
+
+$enable-rounded: false;
+
+$sizes: (
+  "15" : 15%
+);
+
+$fa-font-path: "../fontawesome/webfonts";
+*/
+
+$theme-colors: (
+		"primary": #28285e,
+		"primaryDarken": darken(#28285e, 10),
+		"secondaryColor": #FD8607FF,
+		"secondary":darken(grey, 20),
+		"gray":gray("500"),
+		"shadow": lighten(#e2b14d, 20),
+		"inputDisabledBgColor": #eee,
+		"invalidInputBorderColor": #f44336
+);

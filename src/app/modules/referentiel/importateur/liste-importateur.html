@@ -1,5 +1,5 @@
-<p-toast></p-toast>
 <div class="container-fluid">
+	<p-toast></p-toast>
 	<p-toolbar>
 		<ng-template pTemplate="left">
 			<button pButton pRipple label="Nouveau" icon="pi pi-plus" class="p-button-primary mr-2 btn-primary"
@@ -13,7 +13,10 @@
 				 [tableStyle]="{'min-width':'75rem'}"
 				 selectionMode="single"
 				 [(selection)]="importateurSelectionne"
-				 dataKey="id">
+				 dataKey="id"
+				 [loading]="chargement"
+				 loadingIcon="spinner-border"
+		>
 			<ng-template pTemplate="header">
 				<tr>
 					<th scope="col" style="width: 4rem; text-align: center;">
@@ -52,7 +55,7 @@
 			</ng-template>
 			<ng-template pTemplate="body" let-importateur>
 				<tr>
-					<td	class="text-center">
+					<td class="text-center">
 						<p-tableCheckbox [value]='importateur'></p-tableCheckbox>
 					</td>
 					<td>{{ importateur.code }}</td>

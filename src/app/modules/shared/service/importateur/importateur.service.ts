@@ -10,8 +10,11 @@ import { urls } from '../urls';
 export class ImportateurService {
   constructor(private http: HttpClient) {}
 
-  /** Récuperer la liste des importateurs.
-	 * @return Importateur[]
+
+	/**
+	 * Récupère la liste des importateurs
+	 *
+	 * @return la liste des importateurs
 	 */
 	recupererImportateur():Observable<Importateur[]> {
 	  return this.http.get<Importateur[]>(urls.importateur + '/lister');

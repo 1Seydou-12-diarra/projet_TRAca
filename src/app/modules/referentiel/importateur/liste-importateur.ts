@@ -2,40 +2,44 @@ import {Component, OnInit} from '@angular/core';
 import {Importateur} from '../../shared/model/importateur/importateur.model';
 import {ImportateurService} from '../../shared/service/importateur/importateur.service';
 import {MessageService} from 'primeng/api';
+import {finalize} from "rxjs";
 
 @Component({
-	selector: 'app-importateur',
-	templateUrl: './importateur.component.html',
+	selector: 'liste-importateur',
+	templateUrl: './liste-importateur.html',
 	styleUrls: ['./importateur.component.scss']
 })
-export class ImportateurComponent implements OnInit {
+export class ListeImportateur implements OnInit {
 	idImportateur: number;
 	importateur: Importateur;
 	importateurs: Importateur[] = [];
 	importateurSelectionne: Importateur;
 	submitted: boolean;
 	importateurDialog: boolean;
+	chargement: boolean;
 
-	constructor(
-		private importateurService: ImportateurService,
-		private messageService: MessageService,
-	) {
+	constructor(private importateurService: ImportateurService,
+		private messageService: MessageService) {
 	}
 
 	ngOnInit(): void {
 		this.recupererImportateur();
 	}
 
+
 	/**
-	 * Cette méthode permet de lister tous les importateur
-	 * @param importateur
+	 * Récupère les importateurs
 	 */
 	recupererImportateur(): void {
-		this.importateurService.recupererImportateur().subscribe({
+		this.chargement = true;
+		this.importateurService.recupererImportateur()
+			.pipe(finalize(() => this.chargement = false))
+			.subscribe({
 			next: data => {
 				this.importateurs = data;
 			},
 			error: err => {
+				// TODO afficher une erreur si la récupération ne s'est pas bien passée
 				this.messageService.add({
 					severity: 'error',
 					summary: 'Error',
