@@ -8,12 +8,18 @@
 			<img src="assets/img/logo_snedai_blanc.svg" [style]="{'width':'300px'}">
 		</div>
 		<div>
-			<label for="username"> Nom d'utilisateur</label>
+			<label for="username">Nom d'utilisateur</label>
 			<input type="text" id="username" formControlName="username">
+			<div *ngIf="loginForm.get('username').invalid && submitted" class="text-danger message-erreur">
+				Le nom d'utilisateur est requis.
+			</div>
 		</div>
 		<div>
 			<label for="password">Mot de passe</label>
 			<input type="password" id="password" formControlName="password">
+			<div *ngIf="loginForm.get('password').invalid && submitted" class="text-danger message-erreur">
+				Le mot de passe est requis.
+			</div>
 		</div>
 		<div class="flex justify-content-center flex-wrap">
 			<button *ngIf="!chargement" label="Connexion" class="mt-4" type="submit" pButton>

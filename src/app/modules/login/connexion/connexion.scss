@@ -41,7 +41,7 @@
 }
 
 form {
-	height: 520px;
+	height: 550px;
 	width: 400px;
 	position: absolute;
 	transform: translate(-50%, -50%);
@@ -126,4 +126,8 @@ button {
 
 .social i {
 	margin-right: 4px;
+}
+
+.message-erreur {
+	text-align: right;
 }
