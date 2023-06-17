@@ -4,7 +4,7 @@ import { SidebarComponent } from './component/sidebar/sidebar.component';
 import { SublevelMenuComponent } from './component/sidebar/sublevel-menu.component';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { TooltipModule } from 'primeng/tooltip';
-import { HeaderComponent } from './component/header/header.component';
+import { Header } from './component/header/header';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { DropdownModule } from 'primeng/dropdown';
 import { ButtonModule } from 'primeng/button';
@@ -19,13 +19,13 @@ import { MainPageComponent } from './component/main-page/main-page.component';
 	declarations: [
 		SidebarComponent,
 		SublevelMenuComponent,
-		HeaderComponent,
+		Header,
 		ReplacePipe,
 		MainPageComponent
 	],
 	exports: [
 		SidebarComponent,
-		HeaderComponent,
+		Header,
 		MainPageComponent,
 		ReplacePipe,
 		CurrencyPipe,
