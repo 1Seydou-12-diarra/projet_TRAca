@@ -1,5 +1,7 @@
-@import "variables";
 @import "spinners";
+@import "variables";
+@import "classes";
+@import "theme-primeng";
 body,
 body .p-component {
 	font-family: "Open Sans", sans-serif;
@@ -19,7 +21,7 @@ body .p-component {
 }
 
 .spinner-border {
-	color:  map_get($theme-colors, 'secondaryColor') !important;
+	color:  map_get($theme-colors, 'primary') !important;
 }
 
 /* Styles des modales */
@@ -57,7 +59,7 @@ ngb-typeahead-window {
 			border: 0;
 
 			&.active {
-				background-color: #e9660f !important;
+				background-color: map_get($theme-colors, 'primary') !important;
 				color: #FFFFFF;
 			}
 		}

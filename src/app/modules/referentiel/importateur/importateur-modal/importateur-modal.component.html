@@ -8,35 +8,38 @@
 		  (onShow)="onOuverture()"
 		  (onHide)="onFermeture()"
 		  [focusOnShow]="false"
-		  [style]="{ width: '470px' }">
+		  [style]="{ width: '600px' }">
 
 	<p-header>
-		{{ idImportateur == 0 || idImportateur == null ? "Ajouter  Importateur" : "Modifier Importateur" }}
+		{{ modeModification ? "Modifier Importateur" : "Ajouter  Importateur"  }}
 	</p-header>
-
-	<div class="container-fluid">
+	<div class="d-flex justify-content-center align-items-center" *ngIf="chargementOuverture">
+		<span class="spinner-border m-2"></span>
+	</div>
+	<div class="container-fluid" *ngIf="!chargementOuverture">
 		<form [formGroup]="importateurForm">
-			<div class="p-fluid">
-				<div class="p-field">
-					<label for="code">Code</label>
-					<input id="code" type="text" class="p-inputtext-lg" formControlName="code" pInputText>
-				</div>
+			<p-messages [value]="messages" [enableService]="false" [closable]="false"></p-messages>
+				<div class="row">
+					<div class="col-6">
+						<label for="code">Code</label>
+						<input id="code" type="text" formControlName="code" pInputText>
+					</div>
 
-				<div class="p-field">
-					<label for="designation">Désignation</label>
-					<input id="designation" type="text" class="p-inputtext-lg" formControlName="designation" pInputText>
-				</div>
+					<div class="col-6">
+						<label for="designation">Libellé</label>
+						<input id="designation"  type="text" formControlName="designation" pInputText>
+					</div>
 
-				<div class="p-field">
-					<label for="nom">Nom</label>
-					<input id="nom" type="text" class="p-inputtext-lg" formControlName="nomGerant" pInputText>
-				</div>
+					<div class="col-6">
+						<label for="nom">Nom Gérant</label>
+						<input id="nom" type="text" formControlName="nomGerant" pInputText>
+					</div>
 
-				<div class="p-field">
-					<label for="prenoms">Prénoms</label>
-					<input id="prenoms" type="text" class="p-inputtext-lg" formControlName="prenomsGerant" pInputText>
+					<div class="col-6">
+						<label for="prenoms">Prénoms Gérant</label>
+						<input id="prenoms" type="text" formControlName="prenomsGerant" pInputText>
+					</div>
 				</div>
-			</div>
 		</form>
 	</div>
 
@@ -44,8 +47,8 @@
 		<div [hidden]="enregistrementEnCours">
 			<button type="button" pButton
 					[disabled]="importateurForm.invalid"
-					(click)="creerImportateur()"
-					[label]="'Enregistrer'">
+					label="Enregistrer"
+					(click)="enregistrer()">
 			</button>
 			<p-button [label]="'Annuler'"
 					  type="button"

@@ -27,15 +27,15 @@ export class ImportateurService {
  /** creer un importateur.
 	 * @return Importateur
 	 */
-  creerImportateur(importateurs:Importateur):Observable<Importateur> {
-	  return this.http.post<Importateur>(urls.importateur ,importateurs);
+  creerImportateur(importateurs:Importateur):Observable<void> {
+	  return this.http.post<void>(urls.importateur ,importateurs);
   }
 
    /**modifier un importateur.
 	 * @return Importateur
 	 */
-  modifierImportateur(importateur:Importateur, id:number):Observable<Importateur[]> {
-	  return this.http.put<Importateur[]>(urls.importateur + '/' + id ,importateur);
+  modifierImportateur(importateur:Importateur, id:number):Observable<void> {
+	  return this.http.put<void>(urls.importateur +  '/' + id ,importateur);
   }
 
 

@@ -15,11 +15,11 @@ export class ListeImportateur implements OnInit {
 	importateurs: Importateur[] = [];
 	importateurSelectionne: Importateur;
 	submitted: boolean;
-	importateurDialog: boolean;
+	importateurMadalVisible: boolean;
 	chargement: boolean;
 
 	constructor(private importateurService: ImportateurService,
-		private messageService: MessageService) {
+				private messageService: MessageService) {
 	}
 
 	ngOnInit(): void {
@@ -35,19 +35,18 @@ export class ListeImportateur implements OnInit {
 		this.importateurService.recupererImportateur()
 			.pipe(finalize(() => this.chargement = false))
 			.subscribe({
-			next: data => {
-				this.importateurs = data;
-			},
-			error: err => {
-				// TODO afficher une erreur si la récupération ne s'est pas bien passée
-				this.messageService.add({
-					severity: 'error',
-					summary: 'Error',
-					detail: err.message,
-					sticky: true,
-				});
-			}
-		})
+				next: data => {
+					this.importateurs = data;
+				},
+				error: err => {
+					this.messageService.add({
+						severity: 'error',
+						summary: 'Error',
+						detail: err.message,
+						sticky: true,
+					});
+				}
+			})
 	}
 
 	/**
@@ -56,7 +55,7 @@ export class ListeImportateur implements OnInit {
 	 */
 	ouvriModal(importateur?: Importateur) {
 		this.submitted = false;
-		this.importateurDialog = true;
+		this.importateurMadalVisible = true;
 		this.idImportateur = importateur?.id;
 	}
 }

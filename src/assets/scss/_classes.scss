@@ -1,0 +1,250 @@
+@import "spinners";
+@import "variables";
+
+.input-group-addon {
+	width: 150px;
+}
+
+// met les mêmes padding sur les inputs et les selects
+input.form-control-sm {
+	padding-left: 0.75rem !important;
+}
+
+select {
+	&.placeholder {
+		color: grey !important;
+	}
+
+	option:disabled {
+		color: grey !important;
+	}
+
+	option {
+		color: #495057 !important;
+	}
+}
+
+.form-message-erreur {
+	margin-top: 0.25rem;
+	font-size: 80%;
+	color: #dc3545;
+}
+
+.shadow {
+	box-shadow: 8px 7px 20px 0px rgba(0, 0, 0, 0.14), 3px 3px 24px 0px rgba(0, 0, 0, 0.12);
+}
+
+.input-text-clear {
+	position: relative;
+
+	button {
+		position: absolute;
+		display: block;
+		right: 0px;
+		top: 0px;
+	}
+}
+
+.legend-required:after {
+	content: "*";
+	color: red;
+	margin-left: 2px;
+	position: absolute;
+}
+
+.label-required:after {
+	content: "*";
+	color: red;
+	position: absolute;
+	margin-left: 3px;
+}
+
+.label-validity-required:after {
+	content: "(*)";
+	color: red;
+	position: absolute;
+	margin-left: 3px;
+}
+
+.form-inline {
+	.label-required:after {
+		margin-left: 0.5rem;
+	}
+}
+
+.label-right {
+	justify-content: flex-end !important;
+}
+
+.label-center {
+	justify-content: center !important;
+}
+
+.vr {
+	display: flex;
+	border-left: 1px solid;
+}
+
+.ellipse {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	width: auto;
+}
+
+.col-actions button {
+	visibility: hidden;
+	padding: 0;
+	color: black;
+	border: none;
+	text-shadow: none;
+	background-color: transparent;
+	margin-right: 5px;
+
+	&[pSaveEditableRow], &[pCancelEditableRow] {
+		visibility: visible;
+		color: white;
+		background-color: map_get($theme-colors, 'primary');
+
+	}
+
+	&.p-button:hover:not([pSaveEditableRow], [pCancelEditableRow]) {
+		background-color: transparent;
+	}
+}
+
+.p-datatable.p-datatable-hoverable-rows .p-datatable-tbody > tr:hover,
+.p-datatable.p-datatable-hoverable-rows .p-datatable-tbody > tr.p-highlight,
+.p-treetable.p-treetable-hoverable-rows .p-treetable-tbody > tr:hover,
+.p-treetable.p-treetable-hoverable-rows .p-treetable-tbody > tr.p-highlight {
+	.col-actions button {
+		visibility: visible;
+	}
+}
+
+.p-datatable.p-datatable-hoverable-rows .p-datatable-tbody > tr:not(.p-highlight):hover,
+.p-treetable.p-treetable-hoverable-rows .p-treetable-tbody > tr:not(.p-highlight):hover {
+	.col-actions button:not([pSaveEditableRow], [pCancelEditableRow]) {
+		@extend .text-dark !optional;
+	}
+
+	app-autocomplete {
+		button {
+			color: black !important;
+		}
+	}
+}
+
+.p-datatable.p-datatable-hoverable-rows .p-datatable-tbody > tr.p-highlight,
+.p-treetable.p-treetable-hoverable-rows .p-treetable-tbody > tr.p-highlight {
+	.col-actions button {
+		@extend .text-light !optional;
+	}
+}
+
+.p-content {
+	background-color: transparent;
+	border: none;
+}
+
+.modal.modal-s {
+	.modal-dialog, .container {
+		max-width: 400px;
+	}
+}
+
+.modal.modal-ms {
+	.modal-dialog, .container {
+		max-width: 550px;
+	}
+}
+
+.modal.modal-m {
+	.modal-dialog, .container {
+		max-width: 700px;
+	}
+}
+
+.modal.modal-l {
+	.modal-dialog, .container {
+		max-width: 1000px;
+	}
+}
+
+.modal.modal-xl {
+	.modal-dialog, .container {
+		max-width: 1300px;
+	}
+}
+
+.modal.modal-xxl {
+	.modal-dialog, .container {
+		max-width: 1860px;
+	}
+}
+
+.modal.lightbox {
+	.modal-content {
+		background-color: transparent;
+	}
+}
+
+.modal-header {
+	height: 50px;
+	background-color: theme-color("primary");
+	color: white;
+	border-top-left-radius: 0rem;
+	border-top-right-radius: 0rem;
+}
+
+.modal-title {
+	margin-top: -7px;
+}
+
+.modal-footer {
+	height: 50px;
+
+	.btn-primary {
+		width: 120px
+	}
+}
+
+.p-tree {
+	width: 100%;
+	border: 0;
+
+	.p-treenode.noeud-filtre {
+		display: none;
+	}
+
+	.p-treenode.noeud-eligible > div {
+		font-weight: bold;
+	}
+
+	.p-highlight {
+		background: map_get($theme-colors, 'primary');
+		color: white;
+	}
+}
+
+.backdrop-opaque {
+	opacity: 0.9 !important;
+	background-color: black !important;
+}
+
+.modal.status-alert-modal {
+	z-index: 1070 !important;
+}
+
+.modal-backdrop.status-alert-modal {
+	z-index: 1060 !important;
+}
+
+.text-ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.w-18 {
+	width: 18% !important;
+}

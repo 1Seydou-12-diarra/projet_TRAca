@@ -3,20 +3,13 @@
 	<p-toolbar>
 		<ng-template pTemplate="left">
 			<button pButton pRipple label="Nouveau" icon="pi pi-plus" class="p-button-primary mr-2 btn-primary"
-					(click)="ouvriModal()"></button>
+				(click)="ouvriModal()"></button>
 		</ng-template>
 	</p-toolbar>
 	<div class="row-fluid">
-		<p-table [value]="importateurs"
-				 [rows]="10"
-				 [paginator]="true"
-				 [tableStyle]="{'min-width':'75rem'}"
-				 selectionMode="single"
-				 [(selection)]="importateurSelectionne"
-				 dataKey="id"
-				 [loading]="chargement"
-				 loadingIcon="spinner-border"
-		>
+		<p-table [value]="importateurs" [rows]="10" [paginator]="true" [tableStyle]="{'min-width':'75rem'}"
+			selectionMode="single" [(selection)]="importateurSelectionne" dataKey="id" [loading]="chargement"
+			loadingIcon="spinner-border">
 			<ng-template pTemplate="header">
 				<tr>
 					<th scope="col" style="width: 4rem; text-align: center;">
@@ -25,7 +18,7 @@
 					<th scope="col" pSortableColumn="code" class="text-center">Code
 						<p-sortIcon field="code"></p-sortIcon>
 					</th>
-					<th scope="col" pSortableColumn="designation" class="text-center">Désignation
+					<th scope="col" pSortableColumn="designation" class="text-center">Libellé
 						<p-sortIcon field="designation"></p-sortIcon>
 					</th>
 					<th scope="col" pSortableColumn="nomGerant" class="text-center">Nom Gérant
@@ -60,9 +53,14 @@
 					</td>
 					<td>{{ importateur.code }}</td>
 					<td>{{ importateur.designation }}</td>
-					<td>{{ importateur.nomGerant }}</td>
-					<td>{{ importateur.prenomsGerant }}</td>
-					<td class="text-center"></td>
+					<td>{{ importateur.nomGerant | uppercase}}</td>
+					<td>{{ importateur.prenomsGerant |uppercase }}</td>
+					<td class="col-actions">
+						<button class="btn btn-link w-100" pTooltip="Modifier Un Importateur" tooltipPosition="top"
+							(click)="ouvriModal(importateur)">
+							<em class="pi pi-pencil"></em>
+						</button>
+					</td>
 				</tr>
 			</ng-template>
 			<ng-template pTemplate="emptymessage">
@@ -74,4 +72,8 @@
 	</div>
 </div>
 
-<importateur-modal [(visible)]="importateurDialog" [idImportateur]="idImportateur"></importateur-modal>
+<importateur-modal
+	[(visible)]="importateurMadalVisible"
+	[idImportateur]="idImportateur"
+	(enregistrementReussie)="recupererImportateur()">
+</importateur-modal>

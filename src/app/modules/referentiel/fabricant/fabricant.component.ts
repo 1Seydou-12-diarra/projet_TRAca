@@ -50,6 +50,9 @@ export class FabricantComponent implements OnInit {
 		this.fabricantService.recupererFabricants().subscribe({
 			next: data => {
 				this.fabricants = data;
+				console.log(data);
+				
+				
 			},
 			error: err => {
 				this.messageService.add({

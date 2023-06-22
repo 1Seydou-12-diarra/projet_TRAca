@@ -23,6 +23,7 @@ import {FabricantComponent} from "./fabricant/fabricant.component";
 import {ArticleComponent} from "./article/article.component";
 import { ConditionnementComponent } from './conditionnement/conditionnement.component';
 import {ListeImportateur} from './importateur/liste-importateur';
+import { MessagesModule } from 'primeng/messages';
 
 @NgModule({
 	declarations: [
@@ -55,7 +56,8 @@ import {ListeImportateur} from './importateur/liste-importateur';
 		ReactiveFormsModule,
 		TreeSelectModule,
 		TooltipModule,
-		ButtonModule
+		ButtonModule,
+		MessagesModule
 	]
 })
 export class ReferentielModule {

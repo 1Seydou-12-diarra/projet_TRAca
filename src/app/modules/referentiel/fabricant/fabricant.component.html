@@ -39,9 +39,9 @@
 		<ng-template pTemplate="body" let-fabricant>
 			<tr>
 				<td class="text-center"><p-tableCheckbox [value]='fabricant'></p-tableCheckbox></td>
-				<td>{{ fabricant.codeFabricant }}</td>
-				<td>{{ fabricant.designationFabricant }}</td>
-				<td>{{ fabricant.pays.nomPays }}</td>
+				<td>{{ fabricant.code }}</td>
+				<td>{{ fabricant.designation }}</td>
+				<td>{{ fabricant.pays.designation }}</td>
 				<td class="text-center"></td>
 			</tr>
 		</ng-template>

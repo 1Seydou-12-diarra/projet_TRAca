@@ -4,4 +4,9 @@ export class Importateur {
 	designation?: string;
 	nomGerant?: string;
 	prenomsGerant?: string;
+
+	constructor(importateur: Partial<Importateur>) {
+		Object.assign(this, importateur);
+	}
 }
+
