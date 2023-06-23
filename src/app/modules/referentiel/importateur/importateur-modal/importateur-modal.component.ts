@@ -36,7 +36,7 @@ export class ImportateurModal {
 	}
 
 	/**
-	 * Cette méthode se lance lors de la fermeture de la modal
+	 * Cette méthode se lance lors de la fermeture de la modale
 	 */
 	onFermeture(): void {
 		this.submitted = false;

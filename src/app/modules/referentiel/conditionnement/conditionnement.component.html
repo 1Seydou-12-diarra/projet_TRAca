@@ -1,71 +1,112 @@
-<p-toast></p-toast>
 <div class="container-fluid">
-	<p-table #dt [value]="conditionnements"
-			 [rows]="10"
-			 [paginator]="true"
-			 selectionMode="single"
-			 [(selection)]="conditionnement"
-			 dataKey="id">
-		<ng-template pTemplate="header">
-			<tr>
-				<th scope="col" style="width: 4rem; text-align: center;">
-					<p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-				</th>
-				<th scope="col" pSortableColumn="code" class="text-center">Code
-					<p-sortIcon field="code"></p-sortIcon>
-				</th>
-				<th scope="col" pSortableColumn="designation" class="text-center">Désignation
-					<p-sortIcon field="designation"></p-sortIcon>
-				</th>
-				<th scope="col" pSortableColumn="largeur" class="text-center">Largeur
-					<p-sortIcon field="lageur"></p-sortIcon>
-				</th>
-				<th scope="col" pSortableColumn="longueur" class="text-center">Longueur
-					<p-sortIcon field="longueur"></p-sortIcon>
-				</th>
-				<th scope="col" pSortableColumn="hauteur" class="text-center">Hauteur
-					<p-sortIcon field="hauteur"></p-sortIcon>
-				</th>
-				<th scope="col" pSortableColumn="nombreElements" class="text-center">Nombre d'éléments
-					<p-sortIcon field="nombreElements"></p-sortIcon>
-				</th>
-				<th scope="col" class="text-center">Actions</th>
-			</tr>
-			<tr>
-				<th scope="col"></th>
-				<th scope="col">
-					<p-columnFilter type="text" field="code"></p-columnFilter>
-				</th>
-				<th scope="col">
-					<p-columnFilter type="text" field="designation"></p-columnFilter>
-				</th>
-				<th scope="col"></th>
-				<th scope="col"></th>
-				<th scope="col"></th>
-				<th scope="col">
-					<p-columnFilter type="text" field="nombreElements"></p-columnFilter>
-				</th>
-				<th scope="col"></th>
-			</tr>
+	<p-toast></p-toast>
+	<p-toolbar>
+		<ng-template pTemplate="left">
+			<button pButton pRipple label="Nouveau" icon="pi pi-plus" class="p-button-primary mr-2 btn-primary"
+					(click)="ouvriModal()"></button>
 		</ng-template>
-		<ng-template pTemplate="body" let-conditionnement>
-			<tr>
-				<td class="text-center">
-					<p-tableCheckbox [value]='conditionnement'></p-tableCheckbox>
-				</td>
-				<td>{{conditionnement.code}}</td>
-				<td>{{conditionnement.designation}}</td>
-				<td>{{conditionnement.largeur}}</td>
-				<td>{{conditionnement.longueur}}</td>
-				<td>{{conditionnement.hauteur}}</td>
-				<td>{{conditionnement.nombreElements}}</td>
-				<td class="text-center"></td>
-			</tr>
+	</p-toolbar>
+
+		<ng-container *ngIf="chargement; else tableau">
+			<div class="text-center">
+				<i class="spinner-border"></i>
+			</div>
+		</ng-container>
+		<ng-template #tableau>
+			<p-table [value]="conditionnements"
+					 [rows]="10"
+					 [paginator]="true"
+					 selectionMode="single"
+					 [(selection)]="conditionnementSelectionne"
+					 dataKey="id"
+					 [loading]="chargement"
+					 loadingIcon="spinner-border"
+					 [styleClass]="'custom-table'">
+				<ng-template pTemplate="header">
+					<tr>
+						<th scope="col" class="checkBox">
+							<p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+						</th>
+						<th scope="col" pSortableColumn="code" class="text-center">Code
+							<p-sortIcon field="code"></p-sortIcon>
+						</th>
+						<th scope="col" pSortableColumn="designation" class="text-center">Désignation
+							<p-sortIcon field="designation"></p-sortIcon>
+						</th>
+						<th scope="col" pSortableColumn="lonhueur" class="text-center">Longueur
+							<p-sortIcon field="nomGerant"></p-sortIcon>
+						</th>
+						<th scope="col" pSortableColumn="largeur" class="text-center">Largeur
+							<p-sortIcon field="prenomsGerant"></p-sortIcon>
+						</th>
+						<th scope="col" pSortableColumn="hauteur" class="text-center">Hauteur
+							<p-sortIcon field="nomGerant"></p-sortIcon>
+						</th>
+						<th scope="col" pSortableColumn="nombre_element" class="text-center">Nombre Elements
+							<p-sortIcon field="prenomsGerant"></p-sortIcon>
+						</th>
+						<th scope="col" pSortableColumn="article" class="text-center">Article
+							<p-sortIcon field="article"></p-sortIcon>
+						</th>
+						<th scope="col" class="text-center">Actions</th>
+					</tr>
+					<tr>
+						<th scope="col"></th>
+						<th scope="col">
+							<p-columnFilter type="text" field="code"></p-columnFilter>
+						</th>
+						<th scope="col">
+							<p-columnFilter type="text" field="designation"></p-columnFilter>
+						</th>
+						<th scope="col">
+							<p-columnFilter type="text" field="longueur"></p-columnFilter>
+						</th>
+						<th scope="col">
+							<p-columnFilter type="text" field="largeur"></p-columnFilter>
+						</th>
+						<th scope="col">
+							<p-columnFilter type="text" field="hauteur"></p-columnFilter>
+						</th>
+						<th scope="col">
+							<p-columnFilter type="text" field="nombreElements"></p-columnFilter>
+						</th>
+						<th scope="col">
+							<p-columnFilter type="text" field="article.designation"></p-columnFilter>
+						</th>
+						<th scope="col"></th>
+					</tr>
+				</ng-template>
+				<ng-template pTemplate="body" let-conditionnement>
+					<tr>
+						<td class="text-center">
+							<p-tableCheckbox [value]='conditionnement'></p-tableCheckbox>
+						</td>
+						<td>{{ conditionnement.code }}</td>
+						<td>{{ conditionnement.designation }}</td>
+						<td>{{ conditionnement.longueur }}</td>
+						<td>{{ conditionnement.largeur }}</td>
+						<td>{{ conditionnement.hauteur }}</td>
+						<td>{{ conditionnement.nombreElements }}</td>
+						<td>{{ conditionnement.article.designation }}</td>
+						<td class="text-center">
+							<button class="btn btn-link w-100" pTooltip="Modifier Un Fabricant" tooltipPosition="top"
+									(click)="ouvriModal(conditionnement)">
+								<em class="pi pi-pencil"></em>
+							</button>
+						</td>
+					</tr>
+				</ng-template>
+				<ng-template pTemplate="emptymessage">
+					<tr>
+						<td colspan="8" class="text-center">Aucun Conditionnement trouvé.</td>
+					</tr>
+				</ng-template>
+			</p-table>
 		</ng-template>
-		<ng-template pTemplate="emptymessage">
-			<tr>
-				<td colspan="8" class="text-center">Aucun conditionnement trouvé.</td>
-			</tr>
-		</ng-template>
-	</p-table>
-</div>
+	</div>
+
+<app-conditionnement-modal
+	[(visible)]="conditionnementDialogVisible"
+	[idConditionnement]="idConditionnement"
+	(enregistrementReussie)="afficherConditionnement()">
+</app-conditionnement-modal>

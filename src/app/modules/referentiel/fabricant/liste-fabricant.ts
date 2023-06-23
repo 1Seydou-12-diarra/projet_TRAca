@@ -1,16 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { Fabricant } from '../../shared/model/fabricant/fabricant.model';
-import { MessageService } from 'primeng/api';
-import { FabricantService } from '../../shared/service/fabricant/fabricant.service';
-import { finalize } from 'rxjs';
+import {Component, OnInit} from '@angular/core';
+import {Fabricant} from '../../shared/model/fabricant/fabricant.model';
+import {MessageService} from 'primeng/api';
+import {FabricantService} from '../../shared/service/fabricant/fabricant.service';
+import {finalize} from 'rxjs';
 import {PaysService} from '../../shared/service/pays/pays.service';
-import { PrimeNGConfig } from 'primeng/api';
+import {PrimeNGConfig} from 'primeng/api';
 
 
 @Component({
 	selector: 'app-fabricant',
 	templateUrl: './liste-fabricant.html',
-	styleUrls: ['./fabricant.component.scss'],
+	styleUrls: ['./fabricant.component.scss']
 })
 export class ListeFabricant implements OnInit {
 	idFabricant: number;
@@ -21,8 +21,8 @@ export class ListeFabricant implements OnInit {
 	chargement: boolean;
 
 	constructor(private fabricantService: FabricantService,
-		private messageService: MessageService,
-		private primeNgConfig: PrimeNGConfig, private paysService: PaysService
+				private messageService: MessageService,
+				private primeNgConfig: PrimeNGConfig, private paysService: PaysService
 	) {
 	}
 
@@ -63,9 +63,9 @@ export class ListeFabricant implements OnInit {
 						severity: 'error',
 						summary: 'Error',
 						detail: err.message,
-						life: 5000,
+						life: 5000
 					});
-				},
+				}
 			});
 	}
 

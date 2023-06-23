@@ -15,7 +15,7 @@ export class ListeImportateur implements OnInit {
 	importateurs: Importateur[] = [];
 	importateurSelectionne: Importateur;
 	submitted: boolean;
-	importateurMadalVisible: boolean;
+	importateurDialogVisible: boolean;
 	chargement: boolean;
 
 	constructor(private importateurService: ImportateurService,
@@ -55,7 +55,7 @@ export class ListeImportateur implements OnInit {
 	 */
 	ouvriModal(importateur?: Importateur) {
 		this.submitted = false;
-		this.importateurMadalVisible = true;
+		this.importateurDialogVisible = true;
 		this.idImportateur = importateur?.id;
 	}
 }

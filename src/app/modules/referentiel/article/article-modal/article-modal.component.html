@@ -1,0 +1,91 @@
+<p-dialog [(visible)]="visible"
+		  [baseZIndex]="1000"
+		  [modal]="true"
+		  [responsive]="true"
+		  [closeOnEscape]="false"
+		  [draggable]="false"
+		  [resizable]="false"
+		  (onHide)="onFermeture()"
+		  (onShow)="onOuverture()"
+		  [focusOnShow]="false"
+		  [style]="{ width: '800px', height: '350px' }">
+
+	<p-header>
+		{{ modeModification ? "Ajouter article" : "Modifier article" }}
+	</p-header>
+	<div class="d-flex justify-content-center align-items-center" *ngIf="chargementOuverture">
+		<span class="spinner-border m-2"></span>
+	</div>
+
+	<div class="container-fluid"  *ngIf="!chargementOuverture">
+		<form [formGroup]="articleForm">
+			<p-messages [(value)]="messages" [enableService]="false" ></p-messages>
+			<div class="p-fluid">
+				<div class="row div1">
+					<div class="col-6">
+						<div class="p-field">
+							<label>Fabricant</label>
+							<p-dropdown
+								[options]="fabricantOptions"
+								placeholder="Selectionner un fabricant"
+								class="p-inputtext-lg"
+								dataKey="code"
+								appendTo="body"
+								formControlName="fabricant"
+								class="taille-font"
+							></p-dropdown>
+						</div>
+					</div>
+
+					<div class="col-6">
+						<div class="p-field">
+							<label>Marque</label>
+							<p-dropdown
+	
+								[options]="marqueOptions"
+								placeholder="Selectionner une marque"
+								class="p-inputtext-lg"
+								formControlName="marque"
+								dataKey="code"
+								class="taille-font"
+								appendTo="body">
+								
+							</p-dropdown>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-6">
+						<div class="p-field">
+							<label for="code">Code</label>
+							<input id="code" type="text" class="p-inputtext-lg 	taille-font" formControlName="code" pInputText>
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="p-field">
+							<label for="designation">Désignation</label>
+							<input id="designation" type="text" class="p-inputtext-lg taille-font" formControlName="designation"
+								   pInputText>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<p-footer>
+		<div [hidden]="enregistrementEnCours">
+			<button type="button" pButton
+					[disabled]="articleForm.invalid"
+					(click)="enregistrer()"
+					[label]="'Enregistrer'">
+			</button>
+			<p-button [label]="'Annuler'"
+					  type="button"
+					  styleClass="p-button-link"
+					  (click)="fermerModal(false)"></p-button>
+		</div>
+		<span *ngIf="!enregistrementEnCours" class="app-spinner m-2"></span>
+	</p-footer>
+</p-dialog>

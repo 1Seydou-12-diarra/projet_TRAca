@@ -25,7 +25,9 @@ import {ListeFabricant} from "./fabricant/liste-fabricant";
 import {ArticleComponent} from "./article/article.component";
 import {ConditionnementComponent} from './conditionnement/conditionnement.component';
 import {ListeImportateur} from './importateur/liste-importateur';
-import {MessagesModule} from 'primeng/messages';
+import { MessagesModule } from 'primeng/messages';
+import { ArticleModalComponent } from './article/article-modal/article-modal.component';
+import { ConditionnementModalComponent } from './conditionnement/conditionnement-modal/conditionnement-modal.component';
 import {FabricantModal} from './fabricant/fabricant-modal/fabricant-modal.component';
 
 @NgModule({
@@ -35,6 +37,8 @@ import {FabricantModal} from './fabricant/fabricant-modal/fabricant-modal.compon
 		ListeFabricant,
 		ArticleComponent,
 		ConditionnementComponent,
+        ArticleModalComponent,
+        ConditionnementModalComponent,
 		FabricantModal
 	],
 	imports: [
