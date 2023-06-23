@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
 import { Articles } from 'src/app/modules/shared/model/article/article';
-import { Fabricant } from 'src/app/modules/shared/model/fabricant/fabricant';
+import { Fabricant } from '../../shared/model/fabricant/fabricant.model';
 import { Marque } from 'src/app/modules/shared/model/marque/marque';
 import { ArticleService } from 'src/app/modules/shared/service/article/article.service';
 import { FabricantService } from 'src/app/modules/shared/service/fabricant/fabricant.service';

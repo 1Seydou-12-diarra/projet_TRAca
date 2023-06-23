@@ -1,5 +1,5 @@
-import {Fabricant} from "../fabricant/fabricant";
-import {Marque} from "../marque/marque";
+import { Marque } from "../marque/marque";
+import { Fabricant } from "../fabricant/fabricant.model";
 
 export class Articles {
 	id?: number;

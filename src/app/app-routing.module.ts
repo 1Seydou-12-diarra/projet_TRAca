@@ -8,7 +8,6 @@ const routes: Routes = [
 		path: 'connexion',
 		loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule)
 	},
-
 	{
 		path: '', component: MainPageComponent,
 		children: [
@@ -18,7 +17,7 @@ const routes: Routes = [
 			},
 			{
 				path: 'referentiel',
-				loadChildren: () => import('./modules/referentiel/referentiel.module').then(m => m.ReferentielModule)
+				loadChildren: () => import('./modules/referentiel/referential.module').then(m => m.ReferentialModule)
 			},
 			{
 				path: 'accueil', component: Accueil

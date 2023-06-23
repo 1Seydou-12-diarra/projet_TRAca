@@ -1,5 +1,5 @@
 export class Pays {
 	id: number;
-	codePays: string;
-	nomPays: string;
+	code: string;
+	designation: string;
 }

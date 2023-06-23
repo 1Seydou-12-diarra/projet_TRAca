@@ -1,21 +1,16 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import {
-	FormBuilder,
-	FormControl,
-	FormGroup,
-	Validators,
-} from '@angular/forms';
-import { Message, MessageService } from 'primeng/api';
-import { finalize } from 'rxjs';
-import { Importateur } from 'src/app/modules/shared/model/importateur/importateur.model';
-import { ImportateurService } from 'src/app/modules/shared/service/importateur/importateur.service';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {Importateur} from 'src/app/modules/shared/model/importateur/importateur.model';
+import {ImportateurService} from 'src/app/modules/shared/service/importateur/importateur.service';
+import {finalize} from 'rxjs';
+import {Message, MessageService} from 'primeng/api';
 
 @Component({
 	selector: 'importateur-modal',
 	templateUrl: './importateur-modal.component.html',
 	styleUrls: ['./importateur-modal.component.scss'],
 })
-export class ImportateurModalComponent {
+export class ImportateurModal {
 	@Input() visible: boolean;
 	@Input() idImportateur: number;
 	@Output() visibleChange: EventEmitter<any> = new EventEmitter();
@@ -138,6 +133,4 @@ export class ImportateurModalComponent {
 				}
 			});
 	}
-
-
 }

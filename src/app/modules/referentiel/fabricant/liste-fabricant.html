@@ -1,0 +1,90 @@
+<div class="container-fluid">
+	<p-toast></p-toast>
+	<p-toolbar>
+		<ng-template pTemplate="left">
+			<button pButton pRipple label="Nouveau" icon="pi pi-plus" 
+			class="p-button-primary mr-2 btn-primary"
+				(click)="ouvriModal()"></button>
+		</ng-template>
+	</p-toolbar>
+	<p-table
+	    class="Table"
+		[value]="fabricants"
+		[rows]="10" [paginator]="true"
+		selectionMode="single"
+		[(selection)]="fabricantSelectionne"
+		dataKey="id"
+		[loading]="chargement"
+		loadingIcon="spinner-border"
+		>
+		<ng-template pTemplate="header">
+			<tr>
+				<th scope="col" class="checkbox">
+					<p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+				</th>
+
+				<th scope="col" pSortableColumn="code" class="text-center">Code
+					<p-sortIcon field="code"></p-sortIcon>
+				</th>
+
+				<th scope="col" pSortableColumn="designation" class="text-center">Libellé
+					<p-sortIcon field="designation"></p-sortIcon>
+				</th>
+
+				<th scope="col" pSortableColumn="pays" class="text-center">Pays
+					<p-sortIcon field="pays"></p-sortIcon>
+				</th>
+
+				<th scope="col" class="text-center">Actions</th>
+
+			</tr>
+			<tr>
+				<th scope="col"></th>
+
+				<th scope="col">
+					<p-columnFilter type="text" field="code"></p-columnFilter>
+				</th>
+
+				<th scope="col">
+					<p-columnFilter type="text" field="designation"></p-columnFilter>
+				</th>
+
+				<th scope="col">
+					<p-columnFilter type="text" field="pays"></p-columnFilter>
+				</th>
+
+				<th scope="col"></th>
+
+			</tr>
+		</ng-template>
+		<ng-template pTemplate="body" let-fabricant>
+			<tr>
+				<td class="text-center">
+					<p-tableCheckbox [value]='fabricant'></p-tableCheckbox>
+				</td>
+				<td>{{ fabricant.code |uppercase }}</td>
+				<td>{{ fabricant.designation }}</td>
+				<td>{{ fabricant.pays.designation }}</td>
+				<td class="col-actions">
+					<button class="btn btn-link w-100"
+						pTooltip="{{'Modifier Un Fabricant'}}"
+						tooltipPosition="top"
+						(click)="ouvriModal(fabricant)">
+						<em class="pi pi-pencil"></em>
+					</button>
+				</td>
+			</tr>
+		</ng-template>
+		<ng-template pTemplate="emptymessage">
+			<tr>
+				<td colspan="5" class="text-center">Aucun Fabricant trouvé.</td>
+			</tr>
+		</ng-template>
+	</p-table>
+</div>
+
+<fabricant-modal 
+[(visible)]="fabricantModaleVisible" 
+[idFabricant]="idFabricant"
+(enregistrementReussie)="recupererFabricant()">
+</fabricant-modal>

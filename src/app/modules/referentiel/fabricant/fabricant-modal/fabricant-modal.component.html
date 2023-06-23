@@ -1,0 +1,54 @@
+<p-dialog
+	[(visible)]="visible"
+	[baseZIndex]="1000"
+	[modal]="true"
+	[responsive]="true"
+	[closeOnEscape]="false"
+	[draggable]="false"
+	[resizable]="false"
+	(onShow)="onOuverture()"
+	(onHide)="onFermeture()"
+	[focusOnShow]="false" loadingIcon="spinner-border">
+
+	<p-header>
+		{{ modeModification ? "Modifier un Fabricant" : "Ajouter un Fabricant" }}
+	</p-header>
+	<div class="d-flex justify-content-center align-items-center" *ngIf="chargementOuverture">
+		<span class="spinner-border m-2"></span>
+	</div>
+
+	<div class="container-fluid"  *ngIf="!chargementOuverture">
+		<form [formGroup]="fabricantForm" class="container-fluid" >
+			<p-messages [(value)]="messages"></p-messages>
+			<div class="row">
+				<div class="p-field col-12">
+					<label for="pays">Pays</label>
+					<p-dropdown [options]="paysOptions" appendTo="body" id="pays" formControlName="pays"
+						></p-dropdown>
+				</div>
+
+				<div class="p-field col-6">
+					<label for="code">Code</label>
+					<input id="code" type="text" formControlName="code" pInputText>
+				</div>
+
+				<div class="p-field col-6">
+					<label for="designation">Libellé</label>
+					<input id="designation" type="text" formControlName="designation" pInputText>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<p-footer>
+		<div [hidden]="enregistrementEnCours">
+			<button type="button" pButton
+				[disabled]="fabricantForm.invalid"
+				label="Enregistrer"
+				(click)="enregistrer()">
+			</button>
+			<p-button label="Annuler" type="button" styleClass="p-button-link" (click)="fermerModal(false)"></p-button>
+		</div>
+		<span *ngIf="enregistrementEnCours" class="app-spinner m-2"></span>
+	</p-footer>
+</p-dialog>

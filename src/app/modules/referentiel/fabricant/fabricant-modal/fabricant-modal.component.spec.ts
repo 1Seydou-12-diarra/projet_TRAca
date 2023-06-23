@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ImportateurModal } from './importateur-modal.component';
+import { FabricantModal } from './fabricant-modal.component';
 
-describe('ImportateurModal', () => {
-  let component: ImportateurModal;
-  let fixture: ComponentFixture<ImportateurModal>;
+describe('FabricantModal', () => {
+  let component: FabricantModal;
+  let fixture: ComponentFixture<FabricantModal>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ImportateurModal ]
+      declarations: [ FabricantModal ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ImportateurModal);
+    fixture = TestBed.createComponent(FabricantModal);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

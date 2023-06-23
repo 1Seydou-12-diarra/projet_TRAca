@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FabricantComponent } from './fabricant.component';
+import { ListeFabricant } from './liste-fabricant';
 
 describe('FabricantComponent', () => {
-  let component: FabricantComponent;
-  let fixture: ComponentFixture<FabricantComponent>;
+  let component: ListeFabricant;
+  let fixture: ComponentFixture<ListeFabricant>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FabricantComponent ]
+      declarations: [ ListeFabricant ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(FabricantComponent);
+    fixture = TestBed.createComponent(ListeFabricant);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

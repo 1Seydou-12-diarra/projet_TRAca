@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
 import {DropdownModule} from 'primeng/dropdown';
 import {MultiSelectModule} from 'primeng/multiselect';
@@ -13,28 +13,33 @@ import {InputTextModule} from 'primeng/inputtext';
 import {TreeSelectModule} from 'primeng/treeselect';
 import {TooltipModule} from "primeng/tooltip";
 import {ButtonModule} from "primeng/button";
+import { KeyFilterModule } from 'primeng/keyfilter';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 import {ReferentielRoutingModule} from './referentiel-routing.module';
 import {ToastModule} from 'primeng/toast';
 import {ToolbarModule} from 'primeng/toolbar';
 import {EditorModule} from 'primeng/editor';
-import {ImportateurModalComponent} from './importateur/importateur-modal/importateur-modal.component';
-import {FabricantComponent} from "./fabricant/fabricant.component";
+import {ImportateurModal} from './importateur/importateur-modal/importateur-modal.component';
+import {ListeFabricant} from "./fabricant/liste-fabricant";
 import {ArticleComponent} from "./article/article.component";
-import { ConditionnementComponent } from './conditionnement/conditionnement.component';
+import {ConditionnementComponent} from './conditionnement/conditionnement.component';
 import {ListeImportateur} from './importateur/liste-importateur';
-import { MessagesModule } from 'primeng/messages';
+import {MessagesModule} from 'primeng/messages';
+import {FabricantModal} from './fabricant/fabricant-modal/fabricant-modal.component';
 
 @NgModule({
 	declarations: [
 		ListeImportateur,
-		ImportateurModalComponent,
-		FabricantComponent,
+		ImportateurModal,
+		ListeFabricant,
 		ArticleComponent,
-		ConditionnementComponent
+		ConditionnementComponent,
+		FabricantModal
 	],
 	imports: [
 		CommonModule,
+		ProgressSpinnerModule,
 		ReferentielRoutingModule,
 		ToastModule,
 		TableModule,
@@ -57,8 +62,9 @@ import { MessagesModule } from 'primeng/messages';
 		TreeSelectModule,
 		TooltipModule,
 		ButtonModule,
-		MessagesModule
+		MessagesModule,
+		KeyFilterModule
 	]
 })
-export class ReferentielModule {
+export class ReferentialModule {
 }
