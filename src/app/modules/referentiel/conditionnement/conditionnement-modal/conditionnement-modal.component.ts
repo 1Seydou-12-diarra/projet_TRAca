@@ -117,7 +117,7 @@ export class ConditionnementModalComponent {
 		const conditionnement = new Conditionnement(this.conditionnementForm.getRawValue());
 		this.chargement = true;
 		this.messages = [];
-		this.enregistrementEnCours = true;
+		// this.enregistrementEnCours = true;
 
 		const enregistrer$ = this.modeModification ? this.conditionnementService
 			.modifierConditionnement(conditionnement) : this.conditionnementService
